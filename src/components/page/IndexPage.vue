@@ -1,5 +1,6 @@
 <template>
   <div>
+    <app-header @search="search"/>
     <div class="mode-tab">
       <div @click="changeMode('index')">
         <p>サークル一覧</p>
@@ -14,6 +15,7 @@
 </template>
 
 <script>
+import Header from '@/components/global/Header';
 import Index from '@/components/index/Index';
 import Like from '@/components/index/Like';
 export default {
@@ -44,11 +46,33 @@ export default {
   methods: {
     changeMode(mode){
       this.mode = mode
+    },
+    search(word){
+      var query = {
+        freeword: word
+      };
+
+      var url = 'http://tk2-215-17314.vs.sakura.ne.jp:3000/circles.json';
+     
+     this.$axios.get(url,{
+
+        params: query,       
+
+      }).catch(error => {
+
+        return error
+
+      }).then(response =>{
+
+        this.items = response.data;
+
+      });
     }
   },
   components: {
       'index': Index,
-      'like': Like
+      'like': Like,
+      'app-header':Header
   }
 }
 </script>
