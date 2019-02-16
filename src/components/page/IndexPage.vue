@@ -2,6 +2,7 @@
   <div>
     <app-header @search="search"/>
     <div class="mode-tab">
+      
       <div @click="changeMode('index')">
         <p>サークル一覧</p>
       </div>

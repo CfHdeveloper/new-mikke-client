@@ -2,15 +2,21 @@
   <div>
     detailpage
     {{circleInfo.name}}
+    <app-menu :circleId="circleInfo.id"/>
+
   </div>
 </template>
 ya
 <script>
+import Menu from '@/components/details/Menu'
 export default {
   data(){
     return {
       circleInfo: {}
     }
+  },
+  components: {
+    'app-menu': Menu
   },
   created(){
     var id = this.$route.params.id;
