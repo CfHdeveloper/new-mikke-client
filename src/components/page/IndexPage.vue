@@ -8,17 +8,17 @@
       </div>
       <div @click="changeMode('like')">
         <p>お気に入り</p>
-      </div>
-      <index v-if="mode=='index'" :items="items"/>
-      <like v-if="mode=='like'"/>  
+      </div>  
     </div>
+
+    <index :items="items"/>
   </div>
 </template>
 
 <script>
 import Header from '@/components/global/Header';
 import Index from '@/components/index/Index';
-import Like from '@/components/index/Like';
+
 export default {
   data(){
     return {
@@ -27,28 +27,59 @@ export default {
     }
   },
   created(){
+
     var query = this.$route.query;
-    
-    var url = 'http://tk2-215-17314.vs.sakura.ne.jp:3000/circles.json';
-     
-    this.$axios.get(url,{
+    this.getWholeCircles(this.$route.query)
 
-      params: query
-
-    }).catch(error => {
-
-      return error
-
-    }).then(response =>{
-      this.items = response.data;
-      console.log(this.items);
-    });
   },
   methods: {
     changeMode(mode){
       this.mode = mode
+
+      //api通信でitemをリフレッシュ
+      if(this.mode == 'index'){
+
+        this.getWholeCircles();
+
+      }else{
+
+        //indexモードに強制移行
+        this.mode = "index";
+
+        var url = 'http://tk2-215-17314.vs.sakura.ne.jp:3000/circles/ids.json';
+        const userKeepId = localStorage.getItem("user") || false;
+
+        //お気に入りが存在する場合
+        if(userKeepId){
+
+          var userKeepIdArray = userKeepId.split("");
+          console.log(userKeepIdArray);
+          this.$axios.post(url,
+          {
+            "ids":userKeepIdArray
+          }
+          
+          ).catch(error => {
+
+            return error
+
+          }).then(response =>{
+
+            this.items = response.data;
+
+          });
+
+        }else{
+          this.item = []
+        }
+
+      }
     },
     search(word){
+
+      //indexモードに強制移行
+      this.mode = "index";
+
       var query = {
         freeword: word
       };
@@ -68,11 +99,28 @@ export default {
         this.items = response.data;
 
       });
+    },
+
+    getWholeCircles(query={}){
+      
+      var url = 'http://tk2-215-17314.vs.sakura.ne.jp:3000/circles.json';
+      
+      this.$axios.get(url,{
+
+        params: query
+
+      }).catch(error => {
+
+        return error
+
+      }).then(response =>{
+        this.items = response.data;
+      });
+
     }
   },
   components: {
       'index': Index,
-      'like': Like,
       'app-header':Header
   }
 }
