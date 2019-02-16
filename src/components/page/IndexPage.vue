@@ -1,6 +1,5 @@
 <template>
   <div>
-    {{items}}
     <div class="mode-tab">
       <div @click="changeMode('index')">
         <p>サークル一覧</p>
@@ -8,7 +7,7 @@
       <div @click="changeMode('like')">
         <p>お気に入り</p>
       </div>
-      <index v-if="mode=='index'"/>
+      <index v-if="mode=='index'" :items="items"/>
       <like v-if="mode=='like'"/>  
     </div>
   </div>
@@ -21,7 +20,7 @@ export default {
   data(){
     return {
       items: [],
-      mode: ""
+      mode: "index"
     }
   },
   created(){
@@ -38,9 +37,8 @@ export default {
       return error
 
     }).then(response =>{
-      console.log(response.data);
       this.items = response.data;
-
+      console.log(this.items);
     });
   },
   methods: {
