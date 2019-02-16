@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div @click="goDetails">
     {{item.name}}
   </div>
 </template>
@@ -8,7 +8,12 @@
 export default {
   props: [
     "item"
-  ]
+  ],
+  methods: {
+    goDetails(){
+      this.$router.push({ name: 'DetailPage', params: { id: this.item.id }})
+    }
+  }
 }
 </script>
 
