@@ -1,5 +1,6 @@
 <template>
   <div>
+    {{items}}
     <div class="mode-tab">
       <div @click="changeMode('index')">
         <p>サークル一覧</p>
@@ -19,8 +20,28 @@ import Like from '@/components/index/Like';
 export default {
   data(){
     return {
+      items: [],
       mode: ""
     }
+  },
+  created(){
+    var query = this.$route.query;
+    
+    var url = 'http://tk2-215-17314.vs.sakura.ne.jp:3000/circles.json';
+     
+    this.$axios.get(url,{
+
+      params: query
+
+    }).catch(error => {
+
+      return error
+
+    }).then(response =>{
+      console.log(response.data);
+      this.items = response.data;
+
+    });
   },
   methods: {
     changeMode(mode){
