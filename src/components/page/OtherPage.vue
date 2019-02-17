@@ -1,6 +1,6 @@
 <template>
   <div>
-    search
+    other
   </div>
 </template>
 
@@ -9,6 +9,7 @@ export default {
   
 }
 </script>
+
 
 <style scoped>
 

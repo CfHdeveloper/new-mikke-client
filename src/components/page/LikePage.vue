@@ -1,22 +1,13 @@
 <template>
-  <div>
-    <app-header @search="search"/>
-    <div class="mode-tab">
-      
-      <div @click="changeMode('index')">
-        <p>サークル一覧</p>
-      </div>
-      <div @click="changeMode('like')">
-        <p>お気に入り</p>
-      </div>  
+  <div class="page">
+    <div class="header">
+      <p class="title">お気に入り</p>
     </div>
-
     <index :items="items"/>
   </div>
 </template>
 
 <script>
-import SearchBar from '@/components/index/SearchBar';
 import Index from '@/components/index/Index';
 
 export default {
@@ -28,86 +19,25 @@ export default {
   },
   created(){
 
-    var query = this.$route.query;
-    this.getWholeCircles(this.$route.query)
+    this.getCircles()
 
   },
   methods: {
-    changeMode(mode){
-      this.mode = mode
 
-      //api通信でitemをリフレッシュ
-      if(this.mode == 'index'){
+    getCircles(){
 
-        this.getWholeCircles();
-
+      var userKeepId = localStorage.getItem("user") || false;
+      if(userKeepId){
+        var userKeepIdArray = userKeepId.split("")
       }else{
-
-        //indexモードに強制移行
-        this.mode = "index";
-
-        var url = 'http://tk2-215-17314.vs.sakura.ne.jp:3000/circles/ids.json';
-        const userKeepId = localStorage.getItem("user") || false;
-
-        //お気に入りが存在する場合
-        if(userKeepId){
-
-          var userKeepIdArray = userKeepId.split("");
-          console.log(userKeepIdArray);
-          this.$axios.post(url,
-          {
-            "ids":userKeepIdArray
-          }
-          
-          ).catch(error => {
-
-            return error
-
-          }).then(response =>{
-
-            this.items = response.data;
-
-          });
-
-        }else{
-          this.item = []
-        }
-
+        return
       }
-    },
-    search(word){
-
-      //indexモードに強制移行
-      this.mode = "index";
-
-      var query = {
-        freeword: word
-      };
-
-      var url = 'http://tk2-215-17314.vs.sakura.ne.jp:3000/circles.json';
-     
-     this.$axios.get(url,{
-
-        params: query,       
-
-      }).catch(error => {
-
-        return error
-
-      }).then(response =>{
-
-        this.items = response.data;
-
-      });
-    },
-
-    getWholeCircles(query={}){
       
-      var url = 'http://tk2-215-17314.vs.sakura.ne.jp:3000/circles.json';
+      var url = 'http://tk2-215-17314.vs.sakura.ne.jp:3000/circles/ids.json';
       
-      this.$axios.get(url,{
+      this.$axios.post(url,{
 
-        params: query
+        ids: userKeepIdArray
 
       }).catch(error => {
 
@@ -120,12 +50,32 @@ export default {
     }
   },
   components: {
-      'index': Index,
-      'app-header':Header
+      'index': Index
   }
 }
 </script>
 
 <style scoped>
+  .page {
+    background-color: #f6f6f6;
+    min-height: 100vh;
+  }
+
+  .title {
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .header {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #c0c0c0;
+    background-color: #ffffff;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
 
 </style>
