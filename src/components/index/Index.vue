@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="index">
     <circle-card v-for="item in items" :key="item.id" :item="item"/>
   </div>
 </template>
@@ -18,5 +18,14 @@ export default {
 </script>
 
 <style scoped>
+
+  .index {
+    display: grid;
+    grid-template-rows: 300px;
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+    grid-gap: 1rem;
+  }
+
 
 </style>
