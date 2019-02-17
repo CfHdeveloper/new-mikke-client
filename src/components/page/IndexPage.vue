@@ -1,16 +1,6 @@
 <template>
   <div class="page">
     <search-bar @search="search"/>
-    <!-- <div class="mode-tab">
-      
-      <div @click="changeMode('index')">
-        <p>サークル一覧</p>
-      </div>
-      <div @click="changeMode('like')">
-        <p>お気に入り</p>
-      </div>  
-    </div> -->
-
     <index :items="items"/>
   </div>
 </template>
@@ -74,6 +64,8 @@ export default {
 
   .page {
     background-color: #f6f6f6;
+    height: 100%;
   }
+
 
 </style>
