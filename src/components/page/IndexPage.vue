@@ -65,6 +65,7 @@ export default {
   .page {
     background-color: #f6f6f6;
     height: 100%;
+    min-height: 100vh;
   }
 
 

@@ -24,7 +24,7 @@ export default {
           return "吹田キャンパス";
           break;
         case 2:
-          return "吹田キャンパス";
+          return "箕面キャンパス";
           break;
         default:
           return "-";

@@ -8,7 +8,7 @@
 
     <div class="button-container" @click="movePage(2)">
       <p class="icon"><font-awesome-icon icon="search" /></p>
-      <p class="title">探す</p>
+      <p class="title">みつける</p>
     </div>
 
     <div class="button-container" @click="movePage(3)">
