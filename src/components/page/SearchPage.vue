@@ -59,7 +59,7 @@ export default {
 }
 
 .container {
-  padding: 20px 10px 20px 10px;
+  padding: 20px 20px 20px 20px;
 }
 
 .header {
@@ -83,7 +83,7 @@ export default {
   text-align: left;
   font-weight: 600;
   margin-bottom: 20px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .list-item {
@@ -91,7 +91,7 @@ export default {
   border-bottom: 1px solid #f6f6f6;
   padding-bottom: 15px;
   margin-bottom: 10px;
-  font-size: 12px;
+  font-size: 14px;
 
 }
 

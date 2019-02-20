@@ -1,49 +1,29 @@
 <template>
   <div class="navigation">
-    <div class="button-container" @click="movePage(1)">
-      <p class="icon"><font-awesome-icon icon="home" /></p>
-      <p class="title">ホーム</p>
- 
-    </div>
+    <router-link class="button-container" :to="{ path: '/'}" exact>
+      <p class="icon home"><font-awesome-icon icon="home" /></p>
+      <p class="title home">ホーム</p>
+    </router-link>
 
-    <div class="button-container" @click="movePage(2)">
-      <p class="icon"><font-awesome-icon icon="search" /></p>
-      <p class="title">みつける</p>
-    </div>
+    <router-link class="button-container" :to="{ path: '/search'}" exact>
+      <p class="icon search"><font-awesome-icon icon="search" /></p>
+      <p class="title search">みつける</p>
+    </router-link>
 
-    <div class="button-container" @click="movePage(3)">
-      <p class="icon"><font-awesome-icon icon="heart" /></p>
-      <p class="title">お気に入り</p>
-    </div>
+    <router-link class="button-container" :to="{ path: '/likes'}" exact>
+      <p class="icon like"><font-awesome-icon icon="heart" /></p>
+      <p class="title like">お気に入り</p>
+    </router-link>
 
-    <div class="button-container" @click="movePage(4)">
-      <p class="icon"><font-awesome-icon icon="ellipsis-h" /></p>
-      <p class="title">その他</p>
-    </div>
+    <router-link class="button-container" :to="{ path: '/others'}" exact>
+      <p class="icon other"><font-awesome-icon icon="ellipsis-h" /></p>
+      <p class="title other">その他</p>
+    </router-link>
   </div>
 </template>
 
 <script>
 export default {
-
-  methods: {
-    movePage(page_num){
-      switch(page_num){
-        case 1:
-          this.$router.push('/');
-          break;
-        case 2:
-          this.$router.push('/search');
-          break;
-        case 3:
-          this.$router.push('/likes');
-          break;
-        case 4:
-          this.$router.push('/others');
-          break;
-      }
-    }
-  }
   
 }
 </script>
@@ -71,6 +51,8 @@ p {
 
 .button-container {
   width: 25%;
+  text-decoration: none;
+  color: #000000;
 
   display: flex;
   flex-direction: column;
@@ -86,6 +68,10 @@ p {
 .title {
   font-size: 5px;
   font-weight: 500;
+}
+
+.router-link-active {
+  color: #f39800;
 }
 
 </style>
