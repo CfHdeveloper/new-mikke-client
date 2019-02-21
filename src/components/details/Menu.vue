@@ -5,8 +5,8 @@
       <p class="title">twitterで共有</p>
     </div>
     <div class="menu-item" @click="addLike">
-      <p class="icon"><font-awesome-icon icon="heart" /></p>
-      <p class="title">お気に入りに追加</p>
+      <p class="icon heart" id="like-icon"><font-awesome-icon icon="heart" /></p>
+      <p class="title" id="like">お気に入りに追加</p>
     </div>
   </div>
 </template>
@@ -21,34 +21,61 @@ export default {
       start_pos: 0 //スクロール検知用
     }
   },
-  mounted() {
+  created() {
+
     window.addEventListener('scroll', this.handleScroll);
+
+  },
+  watch: {
+    circleId(val){
+      //ライクが保存されているか判断してレイアウトわけ
+      const userKeepId = localStorage.getItem("user") || false;
+
+      if(userKeepId){ //localstrangeにuserKeepIdが保存されている
+
+        var userKeepIdArray = userKeepId.split(',');
+
+        if(userKeepIdArray.indexOf(String(val)) >= 0){ //このページのサークルが保存されている
+
+          this.changeToLike();
+
+        }
+      }   
+    }
   },
   methods: {
     addLike(){
       //ブラウザに保存されているidを取得
       const userKeepId = localStorage.getItem("user") || false;
-      console.log(userKeepId)
 
-      if(userKeepId && !userKeepId.match(String(this.circleId))){
-          //ブラウザにすでにuserKeepIdが保存されていて、かつこのページのIdは保存されていない
-          localStorage.setItem("user", userKeepId + this.circleId);
+      if(userKeepId){ //localstrangeにuserKeepIdが保存されている
 
-      }else if(! userKeepId){
-          //ブラウザにuserKeepIdが保存されていない
-          localStorage.setItem("user", this.circleId);
+        var userKeepIdArray = userKeepId.split(',');
 
-      }else{
-          if(userKeepId.length　== 1){ //お気に入りが一つしか保存されていない（削除すると0件になる場合）
+        if(userKeepIdArray.indexOf(String(this.circleId)) == -1){ //このページのサークルは保存されていない
+          localStorage.setItem("user", userKeepId + ',' +this.circleId);
+          this.changeToLike();
+
+        }else{ //このページのサークルが保存されている
+
+          if(userKeepIdArray.length　== 1){ //お気に入りが一つしか保存されていない（削除すると0件になる場合）
 
             localStorage.removeItem("user");
+            this.changeToDislike();
 
           }else{
-
-            var userKeepIdDel = userKeepId.replace(String(this.circleId),"");
+            
+            //一度配列化してから要素を削除
+            var userKeepIdDel = userKeepIdArray.filter(n => n !== String(this.circleId)).join(',');
             localStorage.setItem("user", userKeepIdDel);
-
+            this.changeToDislike();
           }
+        }
+      }else{ //localStrangeにuserKeepIdが保存されていない
+
+        localStorage.setItem("user", this.circleId);
+        this.changeToLike();
+        
       }
     },
     shareOnTwitter(){
@@ -74,7 +101,21 @@ export default {
       
       }
       this.start_pos = current_pos;
+    },
+    changeToLike(){
+      document.getElementById('like').innerText = 'お気に入りを解除'
+      document.getElementById('like').style.color = 'orange'
+      document.getElementById('like-icon').style.color = 'orange'
+    },
+    changeToDislike(){
+      document.getElementById('like').innerText = 'お気に入りに追加'
+      document.getElementById('like').style.color = '#606060'
+      document.getElementById('like-icon').style.color = '#f0f0f0'
     }
+  },
+
+  beforeDestroy(){
+    window.removeEventListener('scroll', this.handleScroll);
   }
 }
 </script>

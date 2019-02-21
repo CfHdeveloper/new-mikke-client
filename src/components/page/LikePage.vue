@@ -28,7 +28,7 @@ export default {
 
       var userKeepId = localStorage.getItem("user") || false;
       if(userKeepId){
-        var userKeepIdArray = userKeepId.split("")
+        var userKeepIdArray = userKeepId.split(",")
       }else{
         return
       }

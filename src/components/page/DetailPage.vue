@@ -21,7 +21,7 @@
       <p class="description" v-html="circleInfo.description"></p>
     </div>
   
-    <app-menu :circleId="circleInfo.id"/>
+    <app-menu :circleId="circleInfo.id" :Aaa="circleInfo.id"/>
 
   </div>
 </template>
@@ -58,7 +58,6 @@ export default {
 
     }).then(response =>{
       this.circleInfo = response.data;
-      console.log(this.circleInfo);
     });
   },
   
