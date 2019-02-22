@@ -43,7 +43,8 @@ p {
   justify-content: space-between;
 
   width: 100%;
-  height: 50px;
+
+  padding-bottom: 20px;
 
   background-color:white;
   border-top: 1px solid #c0c0c0;
@@ -64,9 +65,10 @@ p {
 
 .icon {
   margin-bottom: 5px;
+  font-size: 20px;
 }
 .title {
-  font-size: 5px;
+  font-size: 7px;
   font-weight: 500;
 }
 
