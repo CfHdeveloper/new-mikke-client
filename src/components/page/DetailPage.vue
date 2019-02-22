@@ -15,9 +15,10 @@
       <p class="content">{{getActiveDays}}</p>
       <h3 class="el">メンバー</h3>
       <p class="content">{{circleInfo.members}}人</p>
-      
       <h3 class="el">年会費</h3>
       <p class="content">{{circleInfo.fee}}</p>
+      <h3 class="el">リンク</h3>
+      <app-link :links = "this.circleInfo.link"/>
       <hr class="border">
       <p class="description" v-html="circleInfo.description"></p>
     </div>
@@ -29,6 +30,7 @@
 ya
 <script>
 import Menu from '@/components/details/Menu'
+import Link from '@/components/details/Link'
 export default {
   data(){
     return {
@@ -36,7 +38,8 @@ export default {
     }
   },
   components: {
-    'app-menu': Menu
+    'app-menu': Menu,
+    'app-link': Link
   },
   computed: {
     getLocation(){
@@ -94,7 +97,6 @@ export default {
 }
 
 .border {
-  margin-top: 20px;
   margin-bottom: 20px;
 }
 
