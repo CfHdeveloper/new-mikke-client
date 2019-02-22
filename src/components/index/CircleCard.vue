@@ -41,20 +41,29 @@ export default {
 </script>
 
 
-<style scoped>
+<style scoped lang="scss">
   .card {
     width: 350px;
     height: 300px;
     margin: 0 auto;
+
+    @media screen and (min-width: 780px){
+
+      width: 300px;
+      
+    }
+
+    .img {
+
+      width: 100%;
+      height: 60%;
+      object-fit: cover;
+      vertical-align: bottom;
+
+    }
+
   }
 
-  .img {
-    width: 100%;
-    height: 60%;
-    object-fit: cover;
-    vertical-align: bottom;
-
-  }
 
   .info {
 

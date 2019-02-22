@@ -76,7 +76,62 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+
+.page {
+
+  background-color: #f6f6f6;
+
+  min-height: 100vh;
+  width: 100%;
+
+  //margin貫通対策
+  border: 1px solid transparent;
+
+
+  .img {
+    width: 100%;
+    margin-top:20px;
+    margin-bottom: 20px;
+
+    @media screen and (min-width: 780px){
+
+      margin-top:70px;
+      max-width: 780px;
+      object-fit: contain;
+      
+    }
+  }
+
+  .info-container {
+    padding: 20px;
+    background-color: #ffffff;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 60px;
+
+    .name {
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 2px;
+      text-align: left;
+      margin-bottom: 15px;
+
+      @media screen and (min-width: 780px){
+        font-size: 23px;
+        letter-spacing: 3px;
+        line-height: 36px;
+        margin-bottom: 20px;
+      }
+    }
+
+    @media screen and (min-width: 780px){
+      max-width: 780px;
+      margin: 0 auto 50px;
+    }
+  }
+
+}
 
 .tag {
   display: inline-block;
@@ -89,11 +144,6 @@ export default {
 .tag-container {
   text-align: left;
   margin-bottom: 40px;
-}
-
-.page {
-  background-color: #f6f6f6;
-  min-height: 100vh;
 }
 
 .border {
@@ -112,28 +162,6 @@ export default {
   text-align: left;
   margin-bottom: 20px;
   line-height: 25px;
-}
-
-.img {
-  width: 100%;
-  margin-top:20px;
-  margin-bottom: 20px;
-}
-
-.info-container {
-  padding: 20px;
-  background-color: #ffffff;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-bottom: 60px;
-}
-
-.name {
-  font-weight: 700;
-  font-size: 18px;
-  letter-spacing: 2px;
-  text-align: left;
-  margin-bottom: 15px;
 }
 
 .catch-copy {

@@ -17,7 +17,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
   .index {
     display: grid;
@@ -26,6 +26,18 @@ export default {
     margin: 0 auto;
     padding: 60px 0;
     grid-gap: 1rem;
+
+    @media screen and (min-width: 960px){
+
+      max-width: 960px;
+      margin: 0 auto;
+
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 30px;
+
+      padding: 100px 0;
+      
+    }
   }
 
 

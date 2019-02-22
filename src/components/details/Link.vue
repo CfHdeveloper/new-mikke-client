@@ -50,7 +50,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   .link-container {
     width: 100%;
     border: 1px solid #606060;
@@ -58,15 +58,23 @@ export default {
     margin: 0 auto;
     margin-bottom: 40px;
 
+    .link {
+      width: 33%;
+      flex: 1;
+      padding: 7px;
+
+      @media screen and (min-width: 780px){
+
+        padding: 15px;
+        
+      }
+    }
+
+    .link:not(:last-child) {
+      border-right: 1px solid #606060;
+    }
+
   }
 
-  .link {
-    width: 33%;
-    flex: 1;
-    padding: 7px;
-  }
 
-  .link:not(:last-child) {
-    border-right: 1px solid #606060;
-  }
 </style>

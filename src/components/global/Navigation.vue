@@ -28,7 +28,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 p {
   margin: 0;
@@ -48,6 +48,13 @@ p {
 
   background-color:white;
   border-top: 1px solid #c0c0c0;
+
+  @media screen and (min-width:780px){
+    top: 0;
+    bottom: initial;
+    padding-bottom: 0;
+  }
+  
 }
 
 .button-container {
