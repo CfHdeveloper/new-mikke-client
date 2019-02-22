@@ -51,6 +51,10 @@ export default {
     getActiveDays(){
       var activeDaysNumArray = this.circleInfo.days.split('');
       var weekArray = ['月', '火', '水', '木', '金', '土', '日'];
+
+      if(activeDaysNumArray.length == 7){
+        return '不定期'
+      }
       var activeDaysStrArray = activeDaysNumArray.map(
         val => weekArray[Number(val)]
       );
