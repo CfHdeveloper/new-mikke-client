@@ -89,12 +89,12 @@ export default {
 
       if (current_pos > this.start_pos) {
         //down
-        document.getElementById('menu').style.bottom= "-70px";
+        document.getElementById('menu').style.bottom= "-90px";
         document.getElementById('menu').style.left= "50%";
         document.getElementById('menu').style.opacity= "0";
       }else{
         //up
-        document.getElementById('menu').style.bottom= "70px";
+        document.getElementById('menu').style.bottom= "90px";
         document.getElementById('menu').style.left= "50%";
         document.getElementById('menu').style.opacity= "1";
         
@@ -128,7 +128,7 @@ export default {
   background-color: white; 
   position: fixed;
   left: 50%;
-  bottom: 70px;
+  bottom: 90px;
   transform: translate(-50%, 0%);
   box-shadow: 0px 1px 1px rgba(0,0,0,0.3);
   width: 80%;
