@@ -1,8 +1,7 @@
 <template>
   <div class="container">
     <div>
-      <input type="text" v-model="word" class="input" placeholder="サークル名, キーワードで検索"/>
-      <button @click="search" class="btn"><font-awesome-icon icon="search" /></button>
+      <input type="text" v-model="word" class="input" placeholder="サークル名, キーワードで検索" v-on:keyup.enter="search"/>
     </div>
   </div>
 </template>
@@ -41,7 +40,7 @@ export default {
   .input {
     background-color: #f6f6f6;
     border: none;
-    width: 80%;
+    width: 90%;
     padding: 7px;
 
     font-size: 14px;
