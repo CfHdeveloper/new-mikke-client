@@ -1,7 +1,7 @@
 <template>
   <div class="menu-container" id="menu">
     <div class="menu-item" @click="shareOnTwitter">
-      <p class="icon twitter"><font-awesome-icon icon="share"/></p>
+      <p class="icon twitter"><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'twitter' }"/></p>
       <p class="title">twitterで共有</p>
     </div>
     <div class="menu-item" @click="addLike">

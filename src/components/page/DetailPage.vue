@@ -12,6 +12,7 @@
       <h3 class="el">キャンパス</h3>
       <p class="content">{{getLocation}}</p>
       <h3 class="el">活動日</h3>
+      <p class="content">{{getActiveDays}}</p>
       <h3 class="el">メンバー</h3>
       <p class="content">{{circleInfo.members}}人</p>
       
@@ -43,6 +44,14 @@ export default {
       var locations = ['豊中キャンパス', '吹田キャンパス', '箕面キャンパス']
       return locations[this.circleInfo.location]
 
+    },
+    getActiveDays(){
+      var activeDaysNumArray = this.circleInfo.days.split('');
+      var weekArray = ['月', '火', '水', '木', '金', '土', '日'];
+      var activeDaysStrArray = activeDaysNumArray.map(
+        val => weekArray[Number(val)]
+      );
+      return activeDaysStrArray.join(', ');
     }
   },
   created(){
