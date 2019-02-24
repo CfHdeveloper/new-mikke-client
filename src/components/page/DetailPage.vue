@@ -21,9 +21,10 @@
       <app-link :links = "this.circleInfo.link"/>
       <hr class="border">
       <p class="description" v-html="circleInfo.description"></p>
+
+      <app-menu :circleId="circleInfo.id" :Aaa="circleInfo.id"/>
     </div>
   
-    <app-menu :circleId="circleInfo.id" :Aaa="circleInfo.id"/>
 
   </div>
 </template>

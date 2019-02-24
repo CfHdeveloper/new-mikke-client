@@ -84,6 +84,12 @@ export default {
       window.open(url);
     },
     handleScroll() {
+
+      //pc版の時は無視
+      if(screen.width >= 780){
+        return;
+      }
+
       var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       var current_pos =scrollTop;
 
@@ -120,21 +126,40 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 .menu-container {
-  display: flex;
-  justify-content: center;
-  background-color: white; 
-  position: fixed;
-  left: 50%;
-  bottom: 90px;
-  transform: translate(-50%, 0%);
-  box-shadow: 0px 1px 1px rgba(0,0,0,0.3);
-  width: 80%;
-  padding-top:5px;
-  padding-bottom: 5px;
-  transition: .3s;
+
+  @media screen and (min-width: 780px){
+    
+    width: 100%;
+    padding-top:5px;
+    padding-bottom: 5px;
+    transition: .3s;
+
+    display: flex;
+
+    border: 1px solid #606060;
+
+    margin-top: 60px;
+  }
+
+  @media screen and (max-width: 779px){
+    display: flex;
+
+    position: fixed;
+    left: 50%;
+    bottom: 90px;
+    transform: translate(-50%, 0%);
+    box-shadow: 0px 1px 1px rgba(0,0,0,0.3);
+    width: 80%;
+    padding-top:5px;
+    padding-bottom: 5px;
+    transition: .3s;
+
+    background-color: #ffffff;
+    
+  }
 }
 
 .icon {
@@ -155,6 +180,11 @@ export default {
   width: 50%;
   border-right: 1px solid #f0f0f0;
   text-align: center;
+
+  @media screen and (min-width: 780px){
+
+  }
+
 }
 
 </style>

@@ -21,20 +21,36 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
   .container {
-    position: fixed;
-    top: 0;
-    left: 0;
 
-    width: 100%;
-    padding: 10px;
 
-    font-size:0;
+    @media screen and (min-width: 780px){
 
-    background-color: #ffffff;
-    border-bottom: 1px solid #c0c0c0;
+      position: fixed;
+      top: 59px;
+      left: 0;
+
+      width: 100%;
+      font-size:0;
+
+      padding: 20px;
+
+      background-color: #ffffff;
+      border-bottom: 1px solid #c0c0c0;
+      
+    }
+
+    @media screen and (max-width: 779px){
+
+      position: fixed;
+      top: 0;
+      left: 0;
+
+      padding: 10px;
+      
+    }
   }
 
   .input {

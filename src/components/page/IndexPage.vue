@@ -60,12 +60,19 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
   .page {
     background-color: #f6f6f6;
     min-height: 100vh;
     width: 100%;
+
+    @media screen and (min-width: 780px){
+
+      //pc版ではヘッダー分だけ下げる
+      padding-top: 60px;
+      
+    }
   }
 
 

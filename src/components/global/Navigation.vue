@@ -50,37 +50,80 @@ p {
   border-top: 1px solid #c0c0c0;
 
   @media screen and (min-width:780px){
+
+    //PC版では上側固定
     top: 0;
     bottom: initial;
     padding-bottom: 0;
+
+    justify-content: start;
   }
   
 }
 
 .button-container {
-  width: 25%;
-  text-decoration: none;
-  color: #000000;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  //pc版
+  @media screen and (min-width:780px){
+    display: block;
+    width: 15%;
+    text-decoration: none;
+    color: #000000;
+    padding: 20px;
+    transition: .3s;
 
-  padding: 10px;
+    //ホバーエフェクト
+    &:hover{
+      background-color: orange;
+      color: white;
+    }
+  }
+
+  //スマホ版
+  @media screen and (max-width:779px){
+    display: none;
+    color: #000000;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 10px;
+  }
+
+
 }
 
 .icon {
   margin-bottom: 5px;
   font-size: 20px;
+
+  @media screen and (min-width:780px){
+    display: none;
+  }
+
+
 }
 .title {
   font-size: 7px;
   font-weight: 500;
+
+  @media screen and (min-width:780px){
+    font-size: 14px;
+    font-weight: 600;
+  }
 }
 
 .router-link-active {
   color: #f39800;
+
+  @media screen and (min-width:780px){
+
+    border-bottom: 4px solid orange;
+    color: orange;
+    
+  }
 }
 
 </style>
