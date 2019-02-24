@@ -83,6 +83,7 @@ p {
   @media screen and (max-width:779px){
     display: none;
     color: #000000;
+    text-decoration: none;
 
     display: flex;
     flex-direction: column;

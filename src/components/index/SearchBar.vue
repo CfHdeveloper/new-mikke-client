@@ -25,7 +25,6 @@ export default {
 
   .container {
 
-
     @media screen and (min-width: 780px){
 
       position: fixed;
@@ -49,6 +48,12 @@ export default {
       left: 0;
 
       padding: 10px;
+
+      width: 100%;
+      font-size:0;
+
+      background-color: #ffffff;
+      border-bottom: 1px solid #c0c0c0;
       
     }
   }
