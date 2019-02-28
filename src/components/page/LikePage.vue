@@ -55,7 +55,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   .page {
     background-color: #f6f6f6;
     min-height: 100vh;
@@ -64,6 +64,7 @@ export default {
   .title {
     font-size: 13px;
     font-weight: 600;
+    
   }
 
   .header {
@@ -73,9 +74,15 @@ export default {
     border-bottom: 1px solid #c0c0c0;
     background-color: #ffffff;
 
+    z-index: 50;
+
     position: fixed;
     top: 0;
     left: 0;
+
+    @media screen and (min-width: 780px){
+      display: none;
+    }
   }
 
 </style>

@@ -24,7 +24,7 @@ export default {
     grid-template-rows: 300px;
     grid-template-columns: 1fr;
     margin: 0 auto;
-    padding: 60px 0;
+    padding: 60px 0 90px;
     grid-gap: 1rem;
 
     @media screen and (min-width: 960px){

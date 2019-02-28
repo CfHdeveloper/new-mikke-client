@@ -6,8 +6,7 @@
       <p class="catch-copy">{{circleInfo.title}}</p>
       <p class="name">{{circleInfo.name}}</p>
       <div class="tag-container">
-        <p class="tag">文化系</p>
-        <p class="tag">体育系</p>
+        <p class="tag" v-for="(genre, index) in circleInfo.genres" :key="index">{{genre.name}}</p>
       </div>
       <h3 class="el">キャンパス</h3>
       <p class="content">{{getLocation}}</p>
@@ -105,7 +104,8 @@ export default {
     margin-bottom: 20px;
 
     @media screen and (min-width: 780px){
-
+      height: 500px;
+      object-fit: contain;
       margin-top:70px;
       max-width: 780px;
       object-fit: contain;

@@ -2,7 +2,7 @@
   <div @click="goDetails" class="card">
     <img :src=item.url class="img">
     <div class="info">
-      <p class="tag">文化系</p>
+      <p class="tag" v-for="(genre, index) in item.genres" :key="index">{{genre.name}}</p>
       <h2 class="title">{{item.name}}</h2>
       <p class="location">{{getLocation}}</p>
     </div>
@@ -20,6 +20,9 @@ export default {
   props: [
     "item"
   ],
+  created(){
+    console.log(this.item);
+  },
   computed: {
     getLocation(){
       switch(this.item.location){
