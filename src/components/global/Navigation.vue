@@ -45,6 +45,7 @@ p {
   width: 100%;
 
   padding-bottom: 20px;
+  padding-left: 80px;
 
   background-color:white;
   border-top: 1px solid #c0c0c0;
@@ -55,6 +56,10 @@ p {
     top: 0;
     bottom: initial;
     padding-bottom: 0;
+    padding-right: 10%;
+
+    border-bottom: 1px solid #c0c0c0;
+    border-top: none;
 
     justify-content: start;
   }
@@ -65,17 +70,21 @@ p {
 
   //pc版
   @media screen and (min-width:780px){
-    display: block;
-    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
-    color: #000000;
-    padding: 20px;
-    transition: .3s;
+    color: #909090;
+    padding: 7px;
+    height: 50px;
+    width: 110px;
+    transition: .1s;
+    cursor: pointer;
 
     //ホバーエフェクト
     &:hover{
-      background-color: orange;
-      color: white;
+      border-bottom: 4px solid orange;
+      color: orange;
     }
   }
 
@@ -103,7 +112,8 @@ p {
   font-size: 20px;
 
   @media screen and (min-width:780px){
-    display: none;
+    font-size: 18px;
+    margin-right: 10px;
   }
 
 
@@ -113,7 +123,7 @@ p {
   font-weight: 500;
 
   @media screen and (min-width:780px){
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
   }
 }

@@ -28,7 +28,7 @@ export default {
     @media screen and (min-width: 780px){
 
       position: fixed;
-      top: 59px;
+      top: 48px;
       left: 0;
 
       width: 100%;
@@ -39,6 +39,7 @@ export default {
       background-color: #ffffff;
       border-bottom: 1px solid #c0c0c0;
       
+      z-index: 100;
     }
 
     @media screen and (max-width: 779px){

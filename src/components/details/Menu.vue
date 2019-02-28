@@ -133,8 +133,6 @@ export default {
   @media screen and (min-width: 780px){
     
     width: 100%;
-    padding-top:5px;
-    padding-bottom: 5px;
     transition: .3s;
 
     display: flex;
@@ -180,9 +178,13 @@ export default {
   width: 50%;
   border-right: 1px solid #f0f0f0;
   text-align: center;
+  padding-top:5px;
+  padding-bottom: 5px;
 
   @media screen and (min-width: 780px){
-
+    &:first-child {
+      border-right: 1px solid #606060;
+    }
   }
 
 }
