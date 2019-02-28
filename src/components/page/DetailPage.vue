@@ -18,7 +18,7 @@
       <h3 class="el">年会費</h3>
       <p class="content">{{circleInfo.fee}}</p>
       <h3 class="el">リンク</h3>
-      <app-link :links = "this.circleInfo.link"/>
+      <app-link :links = "this.circleInfo.link" v-if="this.circleInfo.link"/>
       <hr class="border">
       <p class="description" v-html="circleInfo.description"></p>
 
@@ -50,6 +50,10 @@ export default {
 
     },
     getActiveDays(){
+      //computedの一発目にcircledataが取得されていないことに対する対策
+      if(this.circleInfo.days == undefined){
+        return
+      }
       var activeDaysNumArray = this.circleInfo.days.split('');
       var weekArray = ['月', '火', '水', '木', '金', '土', '日'];
 
@@ -75,6 +79,7 @@ export default {
 
     }).then(response =>{
       this.circleInfo = response.data;
+      console.log(this.circleInfo);
     });
   },
   
