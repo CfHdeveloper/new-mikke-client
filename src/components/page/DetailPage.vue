@@ -118,7 +118,8 @@ export default {
     background-color: #ffffff;
     margin-left: 10px;
     margin-right: 10px;
-    margin-bottom: 60px;
+    margin-bottom: 80px;
+    padding-bottom: 70px;
 
     .name {
       font-weight: 700;
