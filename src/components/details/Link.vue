@@ -52,6 +52,7 @@ export default {
       @media screen and (min-width: 780px){
 
         padding: 15px;
+        cursor: pointer;
         
       }
     }

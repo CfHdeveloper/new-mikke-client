@@ -25,6 +25,8 @@ export default {
 
   .container {
 
+    z-index: 100;
+
     @media screen and (min-width: 780px){
 
       position: fixed;
@@ -38,8 +40,7 @@ export default {
 
       background-color: #ffffff;
       border-bottom: 1px solid #c0c0c0;
-      
-      z-index: 100;
+    
     }
 
     @media screen and (max-width: 779px){

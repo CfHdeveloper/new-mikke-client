@@ -45,7 +45,6 @@ p {
   width: 100%;
 
   padding-bottom: 20px;
-  padding-left: 80px;
 
   background-color:white;
   border-top: 1px solid #c0c0c0;
@@ -62,6 +61,8 @@ p {
     border-top: none;
 
     justify-content: start;
+
+    padding-left: 80px;
   }
   
 }
