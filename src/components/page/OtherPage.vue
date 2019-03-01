@@ -6,9 +6,6 @@
         <img src="@/assets/oulife.png" class="img">
         <p class="title">Oulife</p>
       </div>
-      <div class="el" @click="goToLink(1)">
-        <p class="title">Code for Handai</p>
-      </div>
       <div class="el" @click="goToLink(2)">
         <img src="@/assets/mail.png" class="img">
         <p class="title">お問い合わせ</p>
@@ -76,6 +73,8 @@ export default {
       display: flex;
       position: relative;
       justify-content: center;
+
+      cursor: pointer;
 
 
 

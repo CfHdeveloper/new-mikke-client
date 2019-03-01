@@ -27,9 +27,8 @@
     <div class="container">
       <h2 class="title">タグから見つける</h2>
       <ul>
-        <li class="list-item" @click="goNextPage('genres', '文化系')">文化系</li>
-        <li class="list-item" @click="goNextPage('genres', '体育会系')">体育会系</li>
-        <li class="list-item" @click="goNextPage('genres', 'テニス')">テニス</li>
+        <li class="list-item" @click="goNextPage('genre[]', '文化系')">文化系</li>
+        <li class="list-item" @click="goNextPage('genre[]', '体育会系')">体育会系</li>
       </ul>
     </div>
   </div>
@@ -53,6 +52,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+li {
+  cursor: pointer;
+}
 
 .page {
   padding: 50px 0;

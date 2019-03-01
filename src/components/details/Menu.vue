@@ -181,6 +181,8 @@ export default {
   padding-top:5px;
   padding-bottom: 5px;
 
+  cursor: pointer;
+
   @media screen and (min-width: 780px){
     &:first-child {
       border-right: 1px solid #606060;

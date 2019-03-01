@@ -26,8 +26,6 @@ export default {
 
       if(url){
         window.open(url);
-      }else{
-        console.log('url not found');
       }
     }
   }

@@ -20,9 +20,6 @@ export default {
   props: [
     "item"
   ],
-  created(){
-    console.log(this.item);
-  },
   computed: {
     getLocation(){
       switch(this.item.location){

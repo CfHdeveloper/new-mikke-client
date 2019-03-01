@@ -78,7 +78,6 @@ export default {
 
     }).then(response =>{
       this.circleInfo = response.data;
-      console.log(this.circleInfo);
     });
   },
   
