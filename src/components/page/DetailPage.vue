@@ -44,7 +44,7 @@ export default {
   computed: {
     getLocation(){
 
-      var locations = ['豊中キャンパス', '吹田キャンパス', '箕面キャンパス']
+      var locations = ['豊中キャンパス', '吹田キャンパス', '箕面キャンパス', 'その他']
       return locations[this.circleInfo.location]
 
     },

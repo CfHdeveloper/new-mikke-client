@@ -32,6 +32,9 @@ export default {
         case 2:
           return "箕面キャンパス";
           break;
+        case 3:
+          return "その他";
+          break;
         default:
           return "-";
           break;
