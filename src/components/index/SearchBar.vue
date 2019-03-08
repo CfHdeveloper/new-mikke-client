@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div>
-      <input type="text" v-model="word" class="input" placeholder="サークル名, キーワードで検索" v-on:keyup.enter="search"/>
+      <input type="text" v-model="word" class="input" placeholder="サークル名, キーワードで検索"/>
     </div>
   </div>
 </template>
@@ -11,6 +11,11 @@ export default {
   data(){
     return {
       word: ""
+    }
+  },
+  watch: {
+    word (newVal, oldVal) {
+      this.search();
     }
   },
   methods: {
@@ -36,7 +41,7 @@ export default {
       width: 100%;
       font-size:0;
 
-      padding: 20px;
+      padding: 30px;
 
       background-color: #ffffff;
       border-bottom: 1px solid #c0c0c0;
@@ -61,12 +66,24 @@ export default {
   }
 
   .input {
-    background-color: #f6f6f6;
-    border: none;
-    width: 90%;
-    padding: 7px;
-
+    background-color: #ffffff;
+    border: 1px solid #606060;
     font-size: 14px;
+
+    //pc版
+    @media screen and (min-width: 780px){
+      width: 100%;
+      max-width: 960px;
+      padding: 12px 50px 12px 20px;
+    }
+
+    //スマホ版
+    @media screen and (max-width: 779px){
+      width: 90%;
+      padding: 7px;
+    }
+
+
   }
 
   .btn {

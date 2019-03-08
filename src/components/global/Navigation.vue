@@ -75,7 +75,8 @@ p {
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    color: #909090;
+    color: #000000;
+    font-weight: 200;
     padding: 7px;
     height: 50px;
     width: 110px;

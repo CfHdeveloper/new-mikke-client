@@ -98,6 +98,12 @@ export default {
       padding-top: 60px;
       
     }
+
+    .hero-img {
+      width: 100%;
+      height: 500px;
+      background-color: orange;
+    }
   }
 
 

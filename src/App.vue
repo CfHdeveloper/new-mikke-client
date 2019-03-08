@@ -2,6 +2,7 @@
   <div id="app">
     <router-view/>
     <app-navigation/>
+    <app-footer v-if="state.pc"/>
   </div>
 </template>
 
@@ -9,16 +10,33 @@
 import 'normalize.css'
 import 'reset-css'
 import Navigation from '@/components/global/Navigation'
+import Footer from '@/components/global/Footer'
 
 export default {
   name: 'App',
   components: {
-    'app-navigation': Navigation
+    'app-navigation': Navigation,
+    'app-footer': Footer
+  },
+  data(){
+    return {
+      state: {
+        pc: true
+      }
+    }
+  },
+  created(){
+    console.log(window.parent.screen.width > 780);
+    if(window.parent.screen.width > 780){
+      this.state.pc = true;
+    }else{
+      this.state.pc = false;
+    }
   }
 }
 </script>
 
-<style>
+<style lang="scss">
   #app {
     font-family: 'dnp-shuei-gothic-kin-std', 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -36,5 +54,9 @@ export default {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+
+    &:focus{
+      outline: none;
+    }
   }
 </style>
