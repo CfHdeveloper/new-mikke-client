@@ -1,19 +1,25 @@
 <template>
   <div class="page">
     <search-bar @search="search"/>
-    <index :items="items"/>
+    <index :items="showedItems"/>
+    <pagination :circleCount = "circleCount" v-if="circleCount >= 2 && state.pc" @pagination-clicked = "goNextPagination"/>
   </div>
 </template>
 
 <script>
 import SearchBar from '@/components/index/SearchBar';
 import Index from '@/components/index/Index';
+import Pagination from '@/components/index/Pagination'
 
 export default {
   data(){
     return {
 
-      items: []
+      items: [],
+      showedItems: [],
+      state: {
+        pc: true
+      }
 
     }
   },
@@ -21,6 +27,13 @@ export default {
 
     var query = this.$route.query;
     this.getCircles(this.$route.query)
+
+    //pc版の場合とスマホ版の場合でpaginationの仕方を変更
+    if(window.parent.screen.width>780){
+      this.state.pc = true;
+    }else{
+      this.state.pc = false;
+    }
 
   },
   methods: {
@@ -49,13 +62,25 @@ export default {
 
       }).then(response =>{
         this.items = response.data;
+        //pagination処理
+        this.showedItems = this.items.slice(0, 15);
       });
 
+    },
+
+    goNextPagination(n){
+      this.showedItems = this.items.slice(15*(n-1), 15*n);
+    }
+  },
+  computed: {
+    circleCount(){
+      return Math.ceil(this.items.length/15);
     }
   },
   components: {
-      'index': Index,
-      'search-bar': SearchBar
+      Index,
+      SearchBar,
+      Pagination
   }
 }
 </script>
