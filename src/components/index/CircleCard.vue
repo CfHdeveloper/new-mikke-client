@@ -1,6 +1,6 @@
 <template>
   <div @click="goDetails" class="card">
-    <img :src=item.url class="img">
+    <v-lazy-image :src="item.url" class="img"/>
     <div class="info">
       <p class="tag" v-for="(genre, index) in item.genres" :key="index">{{genre.name}}</p>
       <h2 class="title">{{item.name}}</h2>
@@ -16,6 +16,7 @@
 </template>
 
 <script>
+
 export default {
   props: [
     "item"
@@ -65,12 +66,30 @@ export default {
       
     }
 
+    .v-lazy-image {
+      opacity: 0;
+      transition: 0.2s;
+    }
+    .v-lazy-image-loaded {
+      opacity: 1;
+    }
+
     .img {
 
       width: 100%;
       height: 60%;
       object-fit: cover;
       vertical-align: bottom;
+      transition: opacity 2s ease;
+
+      /* 読み込み中は透明に */
+      [lazy=loading] {
+        opacity: 0;
+      }
+      /* 読み込み完了で徐々に不透明になっていく */
+      [lazy=loaded] {
+        opacity: 1;
+      }
 
     }
 
