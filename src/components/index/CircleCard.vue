@@ -1,6 +1,6 @@
 <template>
   <div @click="goDetails" class="card">
-    <v-lazy-image :src="item.url" class="img"/>
+    <img v-lazy="item.url" class="img"/>
     <div class="info">
       <p class="tag" v-for="(genre, index) in item.genres" :key="index">{{genre.name}}</p>
       <h2 class="title">{{item.name}}</h2>
