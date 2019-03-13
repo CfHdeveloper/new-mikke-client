@@ -1,6 +1,7 @@
 <template>
   <div class="page">
     <search-bar @search="search"/>
+    <img src="@/assets/twitter-card.png" alt="" class="hero-img">
     <index :items="showedItems"/>
     <pagination :circleCount = "circleCount" v-if="circleCount >= 2 && state.pc" @pagination-clicked = "goNextPagination"/>
   </div>
@@ -101,7 +102,8 @@ export default {
 
     .hero-img {
       width: 100%;
-      height: 500px;
+      height: 90vh;
+      object-fit: cover;
       background-color: orange;
     }
   }
