@@ -26,7 +26,6 @@ export default {
   created(){
 
     var query = this.$route.query;
-    this.getCircles(this.$route.query)
 
     //pc版の場合とスマホ版の場合でpaginationの仕方を変更
     if(window.parent.screen.width>780){
@@ -34,6 +33,9 @@ export default {
     }else{
       this.state.pc = false;
     }
+
+    this.getCircles(this.$route.query)
+
 
   },
   methods: {
@@ -63,7 +65,13 @@ export default {
       }).then(response =>{
         this.items = response.data;
         //pagination処理
-        this.showedItems = this.items.slice(0, 15);
+
+        if(this.state.pc){
+          this.showedItems = this.items.slice(0, 15);
+        }else{
+          //スマホ版はひとまず全部読み込み
+          this.showedItems = this.items;
+        }
       });
 
     },
