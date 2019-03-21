@@ -4,7 +4,6 @@ import IndexPage from '@/components/page/IndexPage'
 import DetailPage from '@/components/page/DetailPage'
 import LikePage from '@/components/page/LikePage'
 import SearchPage from '@/components/page/SearchPage'
-import SearchResultPage from '@/components/page/SearchResultPage'
 import OtherPage from '@/components/page/OtherPage'
 
 Vue.use(Router)
@@ -31,11 +30,6 @@ export default new Router({
       path: '/search',
       name: 'SearchPage',
       component: SearchPage
-    },
-    {
-      path: '/result',
-      name: 'SearchResultPage',
-      component: SearchResultPage
     },
     {
       path: '/others',

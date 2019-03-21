@@ -69,7 +69,6 @@ export default {
     background-color: #ffffff;
     border: 1px solid #606060;
     font-size: 14px;
-    box-shadow: none;
 
     //pc版
     @media screen and (min-width: 780px){
