@@ -20,8 +20,6 @@ export default {
   ],
   methods: {
     goToLink(linkType){
-
-      //ここAPIの仕様で死ぬほど面倒臭いので中川に言って変えてもらう
       var url = this.links[linkType];
 
       if(url){

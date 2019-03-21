@@ -40,7 +40,7 @@ export default {
   methods: {
     goNextPage(key, value){
       this.$router.push({
-        path: '/',
+        path: '/result',
         query: {
           [key]: value
         }
