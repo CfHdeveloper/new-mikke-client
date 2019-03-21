@@ -60,7 +60,7 @@ export default {
     }
   }
 
-  input[type="submit"]{
+  input {
   -webkit-appearance: none;
   }
 </style>
