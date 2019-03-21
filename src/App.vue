@@ -59,4 +59,8 @@ export default {
       outline: none;
     }
   }
+
+  input[type="submit"]{
+  -webkit-appearance: none;
+  }
 </style>
