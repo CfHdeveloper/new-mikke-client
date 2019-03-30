@@ -1,8 +1,7 @@
 <template>
   <div class="footer">
     <div class="footer__container">
-      <p class="comment">Powered By</p>
-      <img src="@/assets/c4h_logo.svg" alt="Code for Handai" class="logo">
+      <img src="@/assets/oulife-c4h.svg" alt="Code for Handai" class="logo">
       <p class="copy-right">@2019 Code 4 handai All Right Reserved.</p>
     </div>
   </div>
@@ -19,8 +18,8 @@ export default {
   .footer {
     color: white;
     background-color: black;
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 56px;
+    padding-bottom: 20px;
     width: 100%;
 
     &__container {
@@ -28,7 +27,7 @@ export default {
       margin: 0 auto;
 
       .logo {
-        width: 100%;
+        width: 80%;
         margin-bottom: 40px;
       }
 
@@ -40,7 +39,8 @@ export default {
       }
 
       .copy-right {
-        font-size: 16px;
+        font-size: 10px;
+        line-height: 15px;
         letter-spacing: 1px;
 
         color: #e0e0e0;
