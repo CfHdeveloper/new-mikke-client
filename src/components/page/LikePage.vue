@@ -33,7 +33,7 @@ export default {
         return
       }
       
-      var url = 'http://tk2-215-17314.vs.sakura.ne.jp:3000/circles/ids.json';
+      var url = 'https://obywnhxkxa.execute-api.ap-northeast-1.amazonaws.com/dev/circles/ids.json';
       
       this.$axios.post(url,{
 

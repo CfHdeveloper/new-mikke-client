@@ -52,7 +52,7 @@ export default {
 
     getCircles(query={}){
       
-      var url = 'http://tk2-215-17314.vs.sakura.ne.jp:3000/circles.json';
+      var url = 'https://obywnhxkxa.execute-api.ap-northeast-1.amazonaws.com/dev/circles.json';
       
       this.$axios.get(url,{
 

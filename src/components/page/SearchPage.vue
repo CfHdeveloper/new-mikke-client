@@ -27,8 +27,8 @@
     <div class="container">
       <h2 class="title">タグから見つける</h2>
       <ul>
-        <li class="list-item" @click="goNextPage('genre[]', '文化系')">文化系</li>
-        <li class="list-item" @click="goNextPage('genre[]', '体育会系')">体育会系</li>
+        <li class="list-item" @click="goNextPage('genre', '文化系')">文化系</li>
+        <li class="list-item" @click="goNextPage('genre', '体育会系')">体育会系</li>
       </ul>
     </div>
   </div>

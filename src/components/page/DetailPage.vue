@@ -68,7 +68,7 @@ export default {
   created(){
     var id = this.$route.params.id;
     
-    var url = `http://tk2-215-17314.vs.sakura.ne.jp:3000/circles/${id}.json`;
+    var url = `https://obywnhxkxa.execute-api.ap-northeast-1.amazonaws.com/dev/circles/${id}.json`;
      
     this.$axios.get(url)
     
